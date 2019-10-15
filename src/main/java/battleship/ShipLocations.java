@@ -3,11 +3,27 @@ package battleship;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Component
 public class ShipLocations {
+
+    HashMap<Ship, String> shipStatus= new HashMap<>();
+
+//    public void initializeShipStatus(){
+//        ArrayList<Ship> shipLocations = new ArrayList<>();
+//        shipLocations.PlaceAllShips();
+//        for(Ship ship: shipLocations){
+//
+//        }
+//
+//
+//    }
+
+
 
 
     public ArrayList<Ship> PlaceAllShips(){
@@ -18,6 +34,8 @@ public class ShipLocations {
         Ship ship5 = new Ship();
         Coordinates coordinates = new Coordinates();
         ArrayList<Ship> shipLocations = new ArrayList<>();
+        HashMap<Ship, String> shipStatus= new HashMap<>();
+
 
 //      this will need to be randomized - lots of stuff needed here
 //        ship2.PlaceShip();
@@ -55,6 +73,7 @@ public class ShipLocations {
 //    private void Ship PlaceShip(){
 //
 //    }
+
 
 
 

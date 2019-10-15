@@ -49,9 +49,6 @@ public class Application{
         myShips.stream().forEach(ship -> ship.getCoordinates().stream()
                 .forEach(coordinates ->shipCoordinates.add(coordinates)));
 
-//        for (Coordinates coordinates:shipCoordinates) {
-//            System.out.println(coordinates.getX() + "," +coordinates.getY());
-//        }
 
         var loop = true;
         while (loop) {
@@ -73,7 +70,6 @@ public class Application{
                     System.out.println("Type the x coordinate:");
                     System.out.println();
                 }
-
             }
 
             while (validRowInput == false) {
@@ -91,7 +87,6 @@ public class Application{
 
             }
 
-
             Coordinates inputCoordinates = new Coordinates();
             inputCoordinates.setX(rowInput);
             inputCoordinates.setY(columnInput);
@@ -102,21 +97,35 @@ public class Application{
                    for (Cell cell : cells) {
                         if (cell.getCoordinates().isEqual(inputCoordinates)) {
                             //cell.setStatus(coordinates, "H");
-                            cell.setStatus(cell.getCoordinates(), "H");
+                            if(cell.getStatus(inputCoordinates).equals("-")) {
+                                cell.setStatus(cell.getCoordinates(), "*");
+                                System.out.println("You have hit a battleship!");
+                            }else{
+                                System.out.println("You have already guessed this space.");
+                            }
 //                            System.out.println(cell.getStatus(inputCoordinates));
                         }
                     }
-                System.out.println("You have hit a battleship!");
+
             } else {
             for (Cell cell : cells) {
                     if (cell.getCoordinates().isEqual(inputCoordinates)) {
                         //cell.setStatus(coordinates, "M");
-                        cell.setStatus(cell.getCoordinates(), "M");
-//                        System.out.println(cell.getStatus(inputCoordinates));
+                        if(cell.getStatus(inputCoordinates).equals("-")) {
+                            cell.setStatus(cell.getCoordinates(), "M");
+                            System.out.println("Miss. Try Again.");
+                        // System.out.println(cell.getStatus(inputCoordinates));
+                        } else{
+                            System.out.println("You have already guessed this space.");
+                        }
                     }
                 }
-                System.out.println("Miss. Try Again.");
-            }
+             }
+
+
+
+
+
             boardDisplay.Display(cells);
             }
 
