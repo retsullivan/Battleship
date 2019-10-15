@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aea1e66e-d290-4325-9782-90d2a0878a0d" name="Default Changelist" comment="" />
+    <list default="true" id="aea1e66e-d290-4325-9782-90d2a0878a0d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/battleship/BoardDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/battleship/Coordinates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/battleship/InputCheck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/battleship/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/ShipLocations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/battleship/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/battleship/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/battleship/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/battleship/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/battleship/GameBoard.class" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,13 +24,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1SCi1Zd4k593Ow59MP56DezZasj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -66,5 +84,18 @@
       <updated>1571073763878</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
