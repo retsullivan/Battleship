@@ -18,7 +18,6 @@ public class Application{
     private BoardDisplay boardDisplay = new BoardDisplay();
     private ShipLocations shipLocations = new ShipLocations();
     private ArrayList<Coordinates> shipCoordinates = new ArrayList<>();
-    private ArrayList<Ship> myShips;
 
     public Application(Scanner scanner, ShipLocations shipLocations) {
         this.scanner = scanner;
@@ -45,7 +44,7 @@ public class Application{
         scanner.nextLine();
         initializeCells(cells);
         boardDisplay.Display(cells);
-        myShips = shipLocations.PlaceAllShips();
+        ArrayList<Ship> myShips = shipLocations.PlaceAllShips();
         myShips.stream().forEach(ship -> ship.getCoordinates().stream()
                 .forEach(coordinates ->shipCoordinates.add(coordinates)));
 
@@ -69,11 +68,15 @@ public class Application{
             inputCoordinates.setY(yInput);
             System.out.println("You have guessed <"+inputCoordinates.getX() + "," + inputCoordinates.getY() + ">.");
 
-            //if (shipCoordinates.contains(coordinates)) - I think this is the problem
+            // - I think this is the problem
             //it's not checking correctly whether or not the coordinates are ship coordinates
             //I know that this is the problem
-            if(shipCoordinates.stream().map(Coordinates::getX).equals(inputCoordinates.getX()) &&
-               shipCoordinates.stream().map(Coordinates::getX).equals(inputCoordinates.getY())) {
+//            if(shipCoordinates.stream().map(Coordinates::getX).equals(inputCoordinates.getX()) &&
+//               shipCoordinates.stream().map(Coordinates::getY).equals(inputCoordinates.getY())) {
+            //shipCoordinates.stream().mapToInt(c->c.getX()). equals(inputCoordinates.getX()) &&
+            //                     shipCoordinates.stream().mapToInt(c->c.getY()).equals(inputCoordinates.getY())
+
+             if (shipCoordinates.stream().anyMatch(coordinates -> coordinates.isEqual(inputCoordinates))){
                    for (Cell cell : cells) {
                         if (cell.getCoordinates().isEqual(inputCoordinates)) {
                             //cell.setStatus(coordinates, "H");

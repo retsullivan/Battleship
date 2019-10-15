@@ -6,27 +6,27 @@ import java.util.Comparator;
 
 @Component
 public class Coordinates {
-        private int X;
-        private int Y;
+        private Integer X;
+        private Integer Y;
         private Comparator compareCoordinates;
 
         public Coordinates() {
             this(0,0);
         }
-        public Coordinates(int X, int Y) {
+        public Coordinates(Integer X, Integer Y) {
             this.X = X;
             this.Y = Y;
         }
-        public int getX() {
+        public Integer getX() {
             return X;
         }
-        public int getY() {
+        public Integer getY() {
             return Y;
         }
-        public void setX(int X) {
+        public void setX(Integer X) {
             this.X = X;
         }
-        public void setY(int Y) {
+        public void setY(Integer Y) {
             this.Y = Y;
         }
 
