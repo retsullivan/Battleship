@@ -62,29 +62,33 @@ public class Application{
             Coordinates coordinates = new Coordinates();
             coordinates.setX(xInput);
             coordinates.setY(yInput);
+            System.out.println("You have guessed <"+coordinates.getX() + "," + coordinates.getY() + ">.");
 
-            for (Coordinates shipCoordinate:shipCoordinates) {
-                if (shipCoordinate.isEqual(coordinates)) {
-                    for (Cell cell : cells) {
+            if (shipCoordinates.contains(coordinates)){
+                   for (Cell cell : cells) {
                         if (cell.getCoordinates().isEqual(coordinates)) {
-                            cell.setStatus(coordinates, "H");
-
+                            //cell.setStatus(coordinates, "H");
+                            cell.setStatus(cell.getCoordinates(), "H");
+                            System.out.println(cell.getStatus(coordinates));
                         }
-                    }
-                    System.out.println("You have hit a battleship!");
-                } else {
-                    for (Cell cell : cells) {
-                        if (cell.getCoordinates().isEqual(coordinates)) {
-                            cell.setStatus(coordinates, "M");
 
+                    }
+                System.out.println("You have hit a battleship!");
+                } else {
+                for (Cell cell : cells) {
+                        if (cell.getCoordinates().isEqual(coordinates)) {
+                            //cell.setStatus(coordinates, "M");
+                            cell.setStatus(cell.getCoordinates(), "M");
+                            System.out.println(cell.getStatus(coordinates));
                         }
                     }
                     System.out.println("Miss. Try Again.");
                 }
-            }
             boardDisplay.Display(cells);
+            }
+
         }
-    }
+
 
 
         public void initializeCells(ArrayList<Cell> cells){
