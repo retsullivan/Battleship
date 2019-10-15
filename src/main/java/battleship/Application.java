@@ -56,16 +56,17 @@ public class Application{
         while (loop) {
 
             System.out.println("Enter your guess. Type the x coordinate");
-            int xInput = scanner.nextInt();
+            int columnInput = scanner.nextInt();
             System.out.println();
+            
 
             System.out.println("Enter your guess. Type the y coordinate");
-            int yInput = scanner.nextInt();
+            int rowInput = scanner.nextInt();
             System.out.println();
 
             Coordinates inputCoordinates = new Coordinates();
-            inputCoordinates.setX(xInput);
-            inputCoordinates.setY(yInput);
+            inputCoordinates.setX(rowInput);
+            inputCoordinates.setY(columnInput);
             System.out.println("You have guessed <"+inputCoordinates.getX() + "," + inputCoordinates.getY() + ">.");
 
             // - I think this is the problem
@@ -102,9 +103,8 @@ public class Application{
 
 
         public void initializeCells(ArrayList<Cell> cells){
-            for (int x = 7; x >=0; x--) {
+            for (int x = 0; x <8 ; x++) {
                 for (int y = 0; y < 8; y++) {
-
                     Coordinates coordinates = new Coordinates();
                     coordinates.setX(x);
                     coordinates.setY(y);
