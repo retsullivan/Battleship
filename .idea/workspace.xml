@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aea1e66e-d290-4325-9782-90d2a0878a0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/BoardDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/BoardDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/Cell.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

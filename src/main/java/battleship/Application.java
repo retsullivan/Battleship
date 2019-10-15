@@ -92,7 +92,7 @@ public class Application{
 
 
         public void initializeCells(ArrayList<Cell> cells){
-            for (int x = 0; x < 8; x++) {
+            for (int x = 7; x >=0; x--) {
                 for (int y = 0; y < 8; y++) {
                     Cell cell = new Cell();
                     Coordinates coordinates = new Coordinates();

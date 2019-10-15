@@ -31,8 +31,7 @@ public class Cell {
     }
 
 
-    public Coordinates getCoordinates(Cell cell) {
-        cell
+    public Coordinates getCoordinates() {
         return coordinates;
     }
 
@@ -45,7 +44,6 @@ public class Cell {
 
     public void setStatus(Coordinates coordinates, String status) {
         cellData.put(coordinates, status);
-        //System.out.println(cellData.get(coordinates));
     }
 
 }

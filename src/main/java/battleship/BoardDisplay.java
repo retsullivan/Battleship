@@ -9,7 +9,7 @@ public class BoardDisplay {
 
     public void Display (ArrayList<Cell> cells) {
         System.out.print("y-axis___________________________");
-        for (int x = 0; x < 8; x++) { //row
+        for (int x = 7; x >= 0; x--) { //row
             System.out.println();
             System.out.print("   " + x + "   |  ");
             for (int y = 0; y < 8; y++) { //column
