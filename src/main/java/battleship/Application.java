@@ -18,6 +18,7 @@ public class Application{
     private BoardDisplay boardDisplay = new BoardDisplay();
     private ShipLocations shipLocations = new ShipLocations();
     private ArrayList<Coordinates> shipCoordinates = new ArrayList<>();
+    private InputCheck inputCheck = new InputCheck();
 
     public Application(Scanner scanner, ShipLocations shipLocations) {
         this.scanner = scanner;
@@ -55,34 +56,54 @@ public class Application{
         var loop = true;
         while (loop) {
 
-            System.out.println("Enter your guess. Type the x coordinate");
-            int columnInput = scanner.nextInt();
-            System.out.println();
-            
+            boolean validColumnInput = false;
+            boolean validRowInput = false;
+            Integer columnInput = null;
+            Integer rowInput = null;
 
-            System.out.println("Enter your guess. Type the y coordinate");
-            int rowInput = scanner.nextInt();
-            System.out.println();
+            while (validColumnInput == false) {
+                System.out.println("Enter your guess. Type the x coordinate:");
+                String input = scanner.next();
+                if (inputCheck.isValid(input)) {
+                    columnInput = Integer.parseInt(input);
+                    validColumnInput = true;
+                    System.out.println();
+                }
+                else {
+                    System.out.println("Type the x coordinate:");
+                    System.out.println();
+                }
+
+            }
+
+            while (validRowInput == false) {
+                System.out.println("Enter your guess. Type the y coordinate:");
+                String input = scanner.next();
+                if (inputCheck.isValid(input)) {
+                    rowInput = Integer.parseInt(input);
+                    validRowInput = true;
+                    System.out.println();
+                }
+                else {
+                    System.out.println("Type the y coordinate:");
+                    System.out.println();
+                }
+
+            }
+
 
             Coordinates inputCoordinates = new Coordinates();
             inputCoordinates.setX(rowInput);
             inputCoordinates.setY(columnInput);
             System.out.println("You have guessed <"+inputCoordinates.getX() + "," + inputCoordinates.getY() + ">.");
 
-            // - I think this is the problem
-            //it's not checking correctly whether or not the coordinates are ship coordinates
-            //I know that this is the problem
-//            if(shipCoordinates.stream().map(Coordinates::getX).equals(inputCoordinates.getX()) &&
-//               shipCoordinates.stream().map(Coordinates::getY).equals(inputCoordinates.getY())) {
-            //shipCoordinates.stream().mapToInt(c->c.getX()). equals(inputCoordinates.getX()) &&
-            //                     shipCoordinates.stream().mapToInt(c->c.getY()).equals(inputCoordinates.getY())
 
              if (shipCoordinates.stream().anyMatch(coordinates -> coordinates.isEqual(inputCoordinates))){
                    for (Cell cell : cells) {
                         if (cell.getCoordinates().isEqual(inputCoordinates)) {
                             //cell.setStatus(coordinates, "H");
                             cell.setStatus(cell.getCoordinates(), "H");
-                            System.out.println(cell.getStatus(inputCoordinates));
+//                            System.out.println(cell.getStatus(inputCoordinates));
                         }
                     }
                 System.out.println("You have hit a battleship!");
@@ -91,7 +112,7 @@ public class Application{
                     if (cell.getCoordinates().isEqual(inputCoordinates)) {
                         //cell.setStatus(coordinates, "M");
                         cell.setStatus(cell.getCoordinates(), "M");
-                        System.out.println(cell.getStatus(inputCoordinates));
+//                        System.out.println(cell.getStatus(inputCoordinates));
                     }
                 }
                 System.out.println("Miss. Try Again.");

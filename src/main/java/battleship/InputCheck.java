@@ -2,29 +2,21 @@ package battleship;
 
 public class InputCheck {
 
-    //will do later
+    //gonna do this eventually
+    String input = new String();
 
-//    public boolean isValid (String input){
-//        int x;
-//        int y;
-//
-//        String[] inputArray = input.split(String.valueOf(","));
+    public boolean isValid (String input) {
+        this.input = input;
+        boolean isValid = false;
+        try{
+        if (Integer.parseInt(input) >=0 && Integer.parseInt(input) <=7 ) {
+            isValid = true;
+        }
+        } catch( Exception e){
+            System.out.println("Invalid input '" + e.getMessage() + "'.");
+        }
+         return isValid;
+    }
 
-//
-//        Integer.
-//
-//
-//
-//        if(Integer. (Integer.parseInt(validInput[0]))){
-//            return false;
-//        }
-//
-//        else{return false;}
-//    }
-//}
-//
-//    String[] validInput = input.split(String.valueOf(","));
-//    Coordinates coordinates = new Coordinates();
-//                coordinates.setX(Integer.parseInt(validInput[0]));
-//                        coordinates.setY(Integer.parseInt(validInput[1]));
+
 }
