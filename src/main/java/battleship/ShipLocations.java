@@ -19,12 +19,13 @@ public class ShipLocations {
         Coordinates coordinates = new Coordinates();
         ArrayList<Ship> shipLocations = new ArrayList<>();
 
-//      this will need to be randomized
+//      this will need to be randomized - lots of stuff needed here
 //        ship2.PlaceShip();
 //        ship3.PlaceShip();
 //        ship4.PlaceShip();
 //        ship5.placeShip();
 //
+        //hard coding for now
         ship5.setCoordinates(7,7);
         ship5.setCoordinates(7,6);
         ship5.setCoordinates(7,5);

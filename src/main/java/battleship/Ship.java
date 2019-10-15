@@ -1,6 +1,9 @@
 package battleship;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 
+@Component
 public class Ship{
 
     private Cell cell = new Cell();
@@ -16,7 +19,7 @@ public class Ship{
     public ArrayList<Coordinates> getCoordinates() {
         ArrayList<Coordinates>shipCoordinates = new ArrayList<>();
         for(Coordinates coordinates:ship) {
-            shipCoordinates.add(cell.getCoordinates());
+            shipCoordinates.add(coordinates);
         }
         return shipCoordinates;
     }

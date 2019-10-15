@@ -1,7 +1,10 @@
 package battleship;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 
+@Component
 public class BoardDisplay {
 
     private Cell cell;

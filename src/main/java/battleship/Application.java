@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.util.stream.Collector;
 
@@ -48,6 +49,10 @@ public class Application{
         myShips.stream().forEach(ship -> ship.getCoordinates().stream()
                 .forEach(coordinates ->shipCoordinates.add(coordinates)));
 
+//        for (Coordinates coordinates:shipCoordinates) {
+//            System.out.println(coordinates.getX() + "," +coordinates.getY());
+//        }
+
         var loop = true;
         while (loop) {
 
@@ -59,47 +64,50 @@ public class Application{
             int yInput = scanner.nextInt();
             System.out.println();
 
-            Coordinates coordinates = new Coordinates();
-            coordinates.setX(xInput);
-            coordinates.setY(yInput);
-            System.out.println("You have guessed <"+coordinates.getX() + "," + coordinates.getY() + ">.");
+            Coordinates inputCoordinates = new Coordinates();
+            inputCoordinates.setX(xInput);
+            inputCoordinates.setY(yInput);
+            System.out.println("You have guessed <"+inputCoordinates.getX() + "," + inputCoordinates.getY() + ">.");
 
-            if (shipCoordinates.contains(coordinates)){
+            //if (shipCoordinates.contains(coordinates)) - I think this is the problem
+            //it's not checking correctly whether or not the coordinates are ship coordinates
+            //I know that this is the problem
+            if(shipCoordinates.stream().map(Coordinates::getX).equals(inputCoordinates.getX()) &&
+               shipCoordinates.stream().map(Coordinates::getX).equals(inputCoordinates.getY())) {
                    for (Cell cell : cells) {
-                        if (cell.getCoordinates().isEqual(coordinates)) {
+                        if (cell.getCoordinates().isEqual(inputCoordinates)) {
                             //cell.setStatus(coordinates, "H");
                             cell.setStatus(cell.getCoordinates(), "H");
-                            System.out.println(cell.getStatus(coordinates));
+                            System.out.println(cell.getStatus(inputCoordinates));
                         }
-
                     }
                 System.out.println("You have hit a battleship!");
-                } else {
-                for (Cell cell : cells) {
-                        if (cell.getCoordinates().isEqual(coordinates)) {
-                            //cell.setStatus(coordinates, "M");
-                            cell.setStatus(cell.getCoordinates(), "M");
-                            System.out.println(cell.getStatus(coordinates));
-                        }
+            } else {
+            for (Cell cell : cells) {
+                    if (cell.getCoordinates().isEqual(inputCoordinates)) {
+                        //cell.setStatus(coordinates, "M");
+                        cell.setStatus(cell.getCoordinates(), "M");
+                        System.out.println(cell.getStatus(inputCoordinates));
                     }
-                    System.out.println("Miss. Try Again.");
                 }
+                System.out.println("Miss. Try Again.");
+            }
             boardDisplay.Display(cells);
             }
 
         }
 
 
-
         public void initializeCells(ArrayList<Cell> cells){
             for (int x = 7; x >=0; x--) {
                 for (int y = 0; y < 8; y++) {
-                    Cell cell = new Cell();
+
                     Coordinates coordinates = new Coordinates();
                     coordinates.setX(x);
                     coordinates.setY(y);
-                    cell.setCoordinates(coordinates);
-                    cell.setStatus(coordinates,"-");
+                    Cell cell = new Cell(coordinates, "-");
+//                    cell.setCoordinates(coordinates);
+//                    cell.setStatus(coordinates,"-");
                     cells.add(cell);
                 }
             }

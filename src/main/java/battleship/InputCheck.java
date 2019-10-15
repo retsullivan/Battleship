@@ -2,6 +2,8 @@ package battleship;
 
 public class InputCheck {
 
+    //will do later
+
 //    public boolean isValid (String input){
 //        int x;
 //        int y;

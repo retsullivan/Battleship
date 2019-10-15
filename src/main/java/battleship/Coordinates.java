@@ -1,7 +1,10 @@
 package battleship;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Comparator;
 
+@Component
 public class Coordinates {
         private int X;
         private int Y;

@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aea1e66e-d290-4325-9782-90d2a0878a0d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/BoardDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/BoardDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/InputCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/InputCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/ShipLocations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/ShipLocations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/battleship/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/battleship/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/battleship/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/battleship/Cell.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

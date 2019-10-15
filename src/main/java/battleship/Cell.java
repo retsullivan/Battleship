@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-//@Component
+@Component
 public class Cell {
 
     private String uncheckedCell = "-";
@@ -38,11 +38,17 @@ public class Cell {
     public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
+//    public String getStatus(Coordinates coordinates) {
+//
+//        return cellData.get(coordinates);
+//    }
     public String getStatus(Coordinates coordinates) {
-        return cellData.get(coordinates);
+        return status;
+
     }
 
     public void setStatus(Coordinates coordinates, String status) {
+        this.status = status;
         cellData.put(coordinates, status);
     }
 
