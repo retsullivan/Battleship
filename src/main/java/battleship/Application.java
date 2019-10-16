@@ -45,8 +45,8 @@ public class Application{
         scanner.nextLine();
         initializeCells(cells);
         boardDisplay.Display(cells);
-//        ArrayList<Ship> myShips = shipLocations.PlaceAllShips();
-        ArrayList<Ship> myShips = shipLocations.RandomlyPlaceShips();
+       ArrayList<Ship> myShips = shipLocations.PlaceAllShips();
+        //        ArrayList<Ship> myShips = shipLocations.RandomlyPlaceShips();
 
 
 
@@ -94,7 +94,7 @@ public class Application{
             Coordinates inputCoordinates = new Coordinates();
             inputCoordinates.setX(rowInput);
             inputCoordinates.setY(columnInput);
-            System.out.println("You have guessed <"+inputCoordinates.getX() + "," + inputCoordinates.getY() + ">.");
+            System.out.println("You have guessed <"+inputCoordinates.getY() + "," + inputCoordinates.getX() + ">.");
 
 
              if (shipCoordinates.stream().anyMatch(coordinates -> coordinates.isEqual(inputCoordinates))){

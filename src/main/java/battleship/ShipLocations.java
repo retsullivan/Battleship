@@ -29,13 +29,16 @@ public class ShipLocations {
         Random vrand = new Random();
         Random orand = new Random();
         Random posneg = new Random();
-        boolean validPlacement = false;
+
+
         Integer shipSize = 5;
 
-        while (shipLocations.size()<14) {
-
+        while (shipSize>=2) {
+            boolean validPlacement = false;
+            int repeatedCoordinates=0;
             Ship ship = new Ship();
             System.out.println(fleet.size());
+            System.out.println("Ship size" + shipSize);
 
             while (!validPlacement) {
                 Integer horizontalShift = hrand.nextInt(100000) % 6;
@@ -69,26 +72,34 @@ public class ShipLocations {
                     }
                 }
 
-                //I think this is the lastpart that needs to be fixed
+                //I think this is the last part that needs to be fixed
                 //may need to iterate a different way
-//
-                    var isSpotTaken =  ship.getCoordinates().stream().findAny (shipLocations.stream()).;
 
-                     if (isSpotTaken = false) {
-                        validPlacement = true;
+                //ship.getCoordinates().stream().findAny (shipLocations.stream()).;
+                for (Coordinates coordinates : ship.getCoordinates()) {
+                    for (Coordinates c : shipLocations) {
+                        if (coordinates.isEqual(c)) {
+                            repeatedCoordinates++;
+                            System.out.println("invalid placement");
+                        }
                     }
+                }
+                if (repeatedCoordinates ==0){
+                    validPlacement = true;
+                }
 
             }
 
-            shipSize--;
-            //adding valid ship coordinates to our list of ship coordinate locations
-            ship.getCoordinates().stream().forEach(coordinates -> shipLocations.add(coordinates));
             //adding ship to our list of ships
+            for (Coordinates coordinates : ship.getCoordinates()) {
+               shipLocations.add(coordinates);
+            }
+            //iterating down to a smaller ship size
+            shipSize--;
+            //adding ship to fleet
             fleet.add(ship);
             }
-
         return fleet;  //in retrospect, should have done a list of coordinates, but whatever
-
 
     }
 
