@@ -1,37 +1,98 @@
 package battleship;
 
+import com.sun.jdi.IntegerType;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.Random;
 
 
 @Component
 public class ShipLocations {
 
-    HashMap<Ship, String> shipStatus= new HashMap<>();
 
-//    public void initializeShipStatus(){
-//        ArrayList<Ship> shipLocations = new ArrayList<>();
-//        shipLocations.PlaceAllShips();
-//        for(Ship ship: shipLocations){
+    //Grid has 64 spaces
+    //8 columns & 8 rows
+
+    //start each ship pointing up at origin
+    //randomly generate 2 numbers
+    //number1 mod 6 is the horizontal shift
+    //number2 mod 6 is the vertical shift
+    //that number mod 4 is the orientation
+
+    //length of ship + |shift| <=8
+
+    public ArrayList<Ship> RandomlyPlaceShips() {
+        ArrayList<Coordinates> shipLocations = new ArrayList<>();
+        ArrayList<Ship> fleet = new ArrayList<>();
+        Random hrand = new Random();
+        Random vrand = new Random();
+        Random orand = new Random();
+        Random posneg = new Random();
+        boolean validPlacement = false;
+        Integer shipSize = 5;
+
+        while (shipLocations.size()<14) {
+
+            Ship ship = new Ship();
+            System.out.println(fleet.size());
+
+            while (!validPlacement) {
+                Integer horizontalShift = hrand.nextInt(100000) % 6;
+                Integer verticalShift = vrand.nextInt(100000) % 6;
+                Integer orientation = orand.nextInt(100000) % 2;  //0 = vertical 1 = horizontal
+                Integer direction = posneg.nextInt(100000) % 2;  //0 =neg 1 = pos
+
+                if (orientation == 0) { //vertical orientation
+                    if (direction == 1) {
+                        if (shipSize + verticalShift < 8)
+                            for (int i = 0; i < shipSize; i++) {
+                                ship.setCoordinates(horizontalShift, verticalShift + i);
+                            }
+                    } else {
+                        if (verticalShift - shipSize >= 0)
+                            for (int i = 0; i < shipSize; i++) {
+                                ship.setCoordinates(horizontalShift, verticalShift - i);
+                            }
+                    }
+                } else { //horizontal orientation
+                    if (direction == 1) {
+                        if (shipSize + horizontalShift < 8)
+                            for (int i = 0; i < shipSize; i++) {
+                                ship.setCoordinates(horizontalShift + i, verticalShift);
+                            }
+                    } else {
+                        if (horizontalShift - shipSize >= 0)
+                            for (int i = 0; i < shipSize; i++) {
+                                ship.setCoordinates(horizontalShift - i, verticalShift);
+                            }
+                    }
+                }
+
+                //I think this is the lastpart that needs to be fixed
+                //may need to iterate a different way
 //
-//        }
-//
-//
-//    }
+                    var isSpotTaken =  ship.getCoordinates().stream().findAny (shipLocations.stream()).;
+
+                     if (isSpotTaken = false) {
+                        validPlacement = true;
+                    }
+
+            }
+
+            shipSize--;
+            //adding valid ship coordinates to our list of ship coordinate locations
+            ship.getCoordinates().stream().forEach(coordinates -> shipLocations.add(coordinates));
+            //adding ship to our list of ships
+            fleet.add(ship);
+            }
+
+        return fleet;  //in retrospect, should have done a list of coordinates, but whatever
 
 
+    }
 
-
-
-
-
-
-
-    public ArrayList<Ship> PlaceAllShips(){
+    public ArrayList<Ship> PlaceAllShips(){ //hardcoded locations
 
         Ship ship2 = new Ship();
         Ship ship3 = new Ship();
@@ -41,14 +102,6 @@ public class ShipLocations {
         ArrayList<Ship> shipLocations = new ArrayList<>();
         HashMap<Ship, String> shipStatus= new HashMap<>();
 
-
-//      this will need to be randomized - lots of stuff needed here
-//        ship2.PlaceShip();
-//        ship3.PlaceShip();
-//        ship4.PlaceShip();
-//        ship5.placeShip();
-//
-        //hard coding for now
         ship5.setCoordinates(7,7);
         ship5.setCoordinates(7,6);
         ship5.setCoordinates(7,5);

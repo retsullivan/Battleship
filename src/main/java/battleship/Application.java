@@ -45,7 +45,11 @@ public class Application{
         scanner.nextLine();
         initializeCells(cells);
         boardDisplay.Display(cells);
-        ArrayList<Ship> myShips = shipLocations.PlaceAllShips();
+//        ArrayList<Ship> myShips = shipLocations.PlaceAllShips();
+        ArrayList<Ship> myShips = shipLocations.RandomlyPlaceShips();
+
+
+
         myShips.stream().forEach(ship -> ship.getCoordinates().stream()
                 .forEach(coordinates ->shipCoordinates.add(coordinates)));
 
@@ -99,9 +103,9 @@ public class Application{
                             //cell.setStatus(coordinates, "H");
                             if(cell.getStatus(inputCoordinates).equals("-")) {
                                 cell.setStatus(cell.getCoordinates(), "*");
-                                System.out.println("You have hit a battleship!");
+                                System.out.println("*HIT*  You hit a battleship!");
                             }else{
-                                System.out.println("You have already guessed this space.");
+                                System.out.println("You already guessed this space.");
                             }
 //                            System.out.println(cell.getStatus(inputCoordinates));
                         }
@@ -116,7 +120,7 @@ public class Application{
                             System.out.println("Miss. Try Again.");
                         // System.out.println(cell.getStatus(inputCoordinates));
                         } else{
-                            System.out.println("You have already guessed this space.");
+                            System.out.println("You already guessed this space.");
                         }
                     }
                 }

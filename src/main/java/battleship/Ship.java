@@ -24,12 +24,19 @@ public class Ship{
         return shipCoordinates;
     }
 
-    public void setCoordinates(int x, int y){
+    public void setCoordinates(Integer x, Integer y){
         Coordinates coordinates = new Coordinates();
         coordinates.setX(x);
         coordinates.setY(y);
         ship.add(coordinates);
     }
 
+    public Integer shipLength(){
+        Integer shipLength=0;
+        for(Coordinates coordinates: ship) {
+            shipLength++;
+        }
+        return shipLength;
+    }
 }
 

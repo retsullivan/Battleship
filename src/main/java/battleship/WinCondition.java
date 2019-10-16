@@ -16,22 +16,19 @@ public class WinCondition {
 //    }
 
 
+    //this method loop is adding all the statuses at each ship coordinate
+    //if every "-" has been replaced, it means that every ship coordinate has been hit
 
     public Boolean fleetSunk (ArrayList<Coordinates> shipCoordinates, ArrayList<Cell> cellData) {
-
         ArrayList<String> cellStatus = new ArrayList<>();
-
         for (Coordinates coordinates : shipCoordinates) {
             for (Cell cell : cellData) {
-                //this loop is adding all the statuses at each ship coordinate
                 if(cell.getCoordinates().isEqual(coordinates)) {
                     cellStatus.add(cell.getStatus(coordinates));
                 }
             }
         }
-
-        if (!cellStatus.contains("-")) //if every "-" has been replaced, it means that every ship coordinate has been hit
-        {
+        if (!cellStatus.contains("-"))    {
             return true;
         } else {
             return false;
