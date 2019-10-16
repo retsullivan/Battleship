@@ -127,6 +127,11 @@ public class Application{
 
 
             boardDisplay.Display(cells);
+             WinCondition winCondition = new WinCondition();
+             if(winCondition.fleetSunk(shipCoordinates, cells)) {
+                 System.out.println("Congratulations! You sunk all the Battleships!");
+                 loop = false;
+             }
             }
 
         }
