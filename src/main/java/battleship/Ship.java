@@ -24,7 +24,7 @@ public class Ship{
         return shipCoordinates;
     }
 
-    public void setCoordinates(Integer x, Integer y){
+    public void addIndividualCoordinates(Integer x, Integer y){
         Coordinates coordinates = new Coordinates();
         coordinates.setX(x);
         coordinates.setY(y);

@@ -45,8 +45,8 @@ public class Application{
         scanner.nextLine();
         initializeCells(cells);
         boardDisplay.Display(cells);
-       ArrayList<Ship> myShips = shipLocations.PlaceAllShips();
-        //        ArrayList<Ship> myShips = shipLocations.RandomlyPlaceShips();
+       //ArrayList<Ship> myShips = shipLocations.PlaceAllShips();
+         ArrayList<Ship> myShips = shipLocations.RandomlyPlaceShips();
 
 
 

@@ -25,6 +25,7 @@ public class ShipLocations {
     public ArrayList<Ship> RandomlyPlaceShips() {
         ArrayList<Coordinates> shipLocations = new ArrayList<>();
         ArrayList<Ship> fleet = new ArrayList<>();
+
         Random hrand = new Random();
         Random vrand = new Random();
         Random orand = new Random();
@@ -33,41 +34,44 @@ public class ShipLocations {
 
         Integer shipSize = 5;
 
-        while (shipSize>=2) {
+        while (shipSize >= 2) {
+
             boolean validPlacement = false;
-            int repeatedCoordinates=0;
-            Ship ship = new Ship();
+            Ship ship = null;
+
             System.out.println(fleet.size());
             System.out.println("Ship size" + shipSize);
 
             while (!validPlacement) {
-                Integer horizontalShift = hrand.nextInt(100000) % 6;
-                Integer verticalShift = vrand.nextInt(100000) % 6;
+                ship = new Ship();
+                int repeatedCoordinates = 0;
+                Integer horizontalShift = hrand.nextInt(100000) % 7;
+                Integer verticalShift = vrand.nextInt(100000) % 7;
                 Integer orientation = orand.nextInt(100000) % 2;  //0 = vertical 1 = horizontal
                 Integer direction = posneg.nextInt(100000) % 2;  //0 =neg 1 = pos
 
                 if (orientation == 0) { //vertical orientation
                     if (direction == 1) {
-                        if (shipSize + verticalShift < 8)
+                        if (shipSize + verticalShift <= 8)
                             for (int i = 0; i < shipSize; i++) {
-                                ship.setCoordinates(horizontalShift, verticalShift + i);
+                                ship.addIndividualCoordinates(horizontalShift, verticalShift + i);
                             }
                     } else {
                         if (verticalShift - shipSize >= 0)
                             for (int i = 0; i < shipSize; i++) {
-                                ship.setCoordinates(horizontalShift, verticalShift - i);
+                                ship.addIndividualCoordinates(horizontalShift, verticalShift - i);
                             }
                     }
                 } else { //horizontal orientation
                     if (direction == 1) {
-                        if (shipSize + horizontalShift < 8)
+                        if (shipSize + horizontalShift <= 8)
                             for (int i = 0; i < shipSize; i++) {
-                                ship.setCoordinates(horizontalShift + i, verticalShift);
+                                ship.addIndividualCoordinates(horizontalShift + i, verticalShift);
                             }
                     } else {
                         if (horizontalShift - shipSize >= 0)
                             for (int i = 0; i < shipSize; i++) {
-                                ship.setCoordinates(horizontalShift - i, verticalShift);
+                                ship.addIndividualCoordinates(horizontalShift - i, verticalShift);
                             }
                     }
                 }
@@ -76,34 +80,36 @@ public class ShipLocations {
                 //may need to iterate a different way
 
                 //ship.getCoordinates().stream().findAny (shipLocations.stream()).;
-                for (Coordinates coordinates : ship.getCoordinates()) {
-                    for (Coordinates c : shipLocations) {
-                        if (coordinates.isEqual(c)) {
-                            repeatedCoordinates++;
-                            System.out.println("invalid placement");
+
+                if (ship.shipLength() != 0) {
+                    for (Coordinates coordinates : ship.getCoordinates()) {
+                        for (Coordinates c : shipLocations) {
+                            if (coordinates.isEqual(c)) {
+                                repeatedCoordinates++;
+                            }
                         }
                     }
+                    if (repeatedCoordinates == 0) {
+                        validPlacement = true;
+                        System.out.println("Ship Placed");
+                    }
                 }
-                if (repeatedCoordinates ==0){
-                    validPlacement = true;
-                }
-
             }
 
             //adding ship to our list of ships
             for (Coordinates coordinates : ship.getCoordinates()) {
-               shipLocations.add(coordinates);
+                shipLocations.add(coordinates);
             }
             //iterating down to a smaller ship size
             shipSize--;
             //adding ship to fleet
             fleet.add(ship);
-            }
+        }
         return fleet;  //in retrospect, should have done a list of coordinates, but whatever
 
     }
 
-    public ArrayList<Ship> PlaceAllShips(){ //hardcoded locations
+    public ArrayList<Ship> PlaceAllShips() { //hardcoded locations
 
         Ship ship2 = new Ship();
         Ship ship3 = new Ship();
@@ -111,25 +117,25 @@ public class ShipLocations {
         Ship ship5 = new Ship();
         Coordinates coordinates = new Coordinates();
         ArrayList<Ship> shipLocations = new ArrayList<>();
-        HashMap<Ship, String> shipStatus= new HashMap<>();
+        HashMap<Ship, String> shipStatus = new HashMap<>();
 
-        ship5.setCoordinates(7,7);
-        ship5.setCoordinates(7,6);
-        ship5.setCoordinates(7,5);
-        ship5.setCoordinates(7,4);
-        ship5.setCoordinates(7,3);
+        ship5.addIndividualCoordinates(7, 7);
+        ship5.addIndividualCoordinates(7, 6);
+        ship5.addIndividualCoordinates(7, 5);
+        ship5.addIndividualCoordinates(7, 4);
+        ship5.addIndividualCoordinates(7, 3);
 
-        ship4.setCoordinates(0,0);
-        ship4.setCoordinates(0,1);
-        ship4.setCoordinates(0,2);
-        ship4.setCoordinates(0,3);
+        ship4.addIndividualCoordinates(0, 0);
+        ship4.addIndividualCoordinates(0, 1);
+        ship4.addIndividualCoordinates(0, 2);
+        ship4.addIndividualCoordinates(0, 3);
 
-        ship3.setCoordinates(4,5);
-        ship3.setCoordinates(4,4);
-        ship3.setCoordinates(4,3);
+        ship3.addIndividualCoordinates(4, 5);
+        ship3.addIndividualCoordinates(4, 4);
+        ship3.addIndividualCoordinates(4, 3);
 
-        ship2.setCoordinates(2,2);
-        ship2.setCoordinates(2,1);
+        ship2.addIndividualCoordinates(2, 2);
+        ship2.addIndividualCoordinates(2, 1);
 
         shipLocations.add(ship2);
         shipLocations.add(ship3);
@@ -144,9 +150,7 @@ public class ShipLocations {
 //    }
 
 
-
-
-    }
+}
 
 
 
