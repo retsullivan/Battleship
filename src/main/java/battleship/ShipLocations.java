@@ -39,8 +39,8 @@ public class ShipLocations {
             boolean validPlacement = false;
             Ship ship = null;
 
-            System.out.println(fleet.size());
-            System.out.println("Ship size" + shipSize);
+            //System.out.println(fleet.size());
+            //System.out.println("Ship size" + shipSize);
 
             while (!validPlacement) {
                 ship = new Ship();
@@ -91,7 +91,7 @@ public class ShipLocations {
                     }
                     if (repeatedCoordinates == 0) {
                         validPlacement = true;
-                        System.out.println("Ship Placed");
+                        //System.out.println("Ship Placed");
                     }
                 }
             }

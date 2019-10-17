@@ -103,6 +103,14 @@ public class Application{
                             //cell.setStatus(coordinates, "H");
                             if(cell.getStatus(inputCoordinates).equals("-")) {
                                 cell.setStatus(cell.getCoordinates(), "*");
+                                System.out.println( "          _ ._  _ , _ ._\n" +
+                                                    "        (_ ' ( `  )_  .__)\n" +
+                                                    "      ( (  (    )   `)  ) _)\n" +
+                                                    "     (__ (_   (_ . _) _) ,__)\n" +
+                                                    "         `~~`\\ ' . /`~~`\n" +
+                                                    "              ;   ;\n" +
+                                                    "              /   \\\n" +
+                                                    "_____________/_ __ \\_____________");
                                 System.out.println("*HIT*  You hit a battleship!");
                             }else{
                                 System.out.println("You already guessed this space.");
@@ -117,6 +125,13 @@ public class Application{
                         //cell.setStatus(coordinates, "M");
                         if(cell.getStatus(inputCoordinates).equals("-")) {
                             cell.setStatus(cell.getCoordinates(), "M");
+                            System.out.println(  "__  __ _____  _____ _____\n" +
+                                                "|  \\/  |_   _|/ ____/ ____|\n" +
+                                                "| \\  / | | | | (___| (___\n" +
+                                                "| |\\/| | | |  \\___ \\___ \\\n" +
+                                                "| |  | |_| |_ ____) |___) |\n" +
+                                                "|_|  |_|_____|_____/_____/\n");
+
                             System.out.println("Miss. Try Again.");
                         // System.out.println(cell.getStatus(inputCoordinates));
                         } else{
@@ -127,12 +142,15 @@ public class Application{
              }
 
 
-
-
-
             boardDisplay.Display(cells);
              WinCondition winCondition = new WinCondition();
              if(winCondition.fleetSunk(shipCoordinates, cells)) {
+                 System.out.println("__   _____  _   _  __        _____ _   _\n" +
+                                    "\\ \\ / / _ \\| | | | \\ \\      / /_ _| \\ | |\n"+
+                                    " \\ V / | | | | | |  \\ \\ /\\ / / | ||  \\| |\n"+
+                                    "  | || |_| | |_| |   \\ V  V /  | || |\\  |\n"+
+                                    "  |_| \\___/ \\___/     \\_/\\_/  |___|_| \\_|\n");
+                 
                  System.out.println("Congratulations! You sunk all the Battleships!");
                  loop = false;
              }
